@@ -1,17 +1,33 @@
-/* The server for Book Baller
-/  JJ Small ©2022
-*/ 
 require("dotenv").config();
 
-// Server setup
 const express = require("express");
+const mongoose = require("mongoose");
+const workoutRoutes = require("./routes/workouts");
+
+// express app
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Book Baller!')
-})
+// middleware
+app.use(express.json());
 
-// Run the server and let it rip
-app.listen(process.env.SERVER_PORT, () => {
-    console.log("listening on port", process.env.SERVER_PORT);
+app.use((req, res, next) => {
+    console.log(req.path, req.method);
+    next();
 });
+
+// routes
+app.use("/api/workouts", workoutRoutes);
+
+// connect to db
+mongoose
+    .connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log("connected to database");
+        // listen to port
+        app.listen(process.env.PORT, () => {
+            console.log("listening for requests on port", process.env.PORT);
+        });
+    })
+    .catch((err) => {
+        console.log(err);
+    });
