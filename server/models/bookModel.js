@@ -9,13 +9,17 @@ const bookSchema = new Schema(
             type: String,
             required: true,
         },
-        reps: {
-            type: Number,
+        author: {
+            type: String,
             required: true,
         },
-        load: {
+        year: {
             type: Number,
-            required: true,
+            required: false,
+        },
+        genre: {
+            type: String,
+            required: false,
         },
     },
     { timestamps: true }
