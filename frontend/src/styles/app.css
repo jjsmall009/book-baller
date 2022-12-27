@@ -1,0 +1,16 @@
+body {
+    background-color: #25252d;
+    color: white;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.book-zone {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
