@@ -1,3 +1,5 @@
+// Landing page entry point for the site
+
 import BookCard from "../components/BookCard";
 
 const Home = () => {
