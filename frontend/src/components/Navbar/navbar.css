@@ -1,0 +1,19 @@
+header {
+  background-color: #fff5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+header a {
+  color: black;
+  text-decoration: none;
+}
+header a:hover {
+  background-color: azure;
+  border-radius: 5px;
+}
+header nav {
+  display: flex;
+  gap: 1rem;
+}/*# sourceMappingURL=navbar.css.map */
