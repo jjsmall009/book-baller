@@ -51,18 +51,68 @@ h6 {
     General Styling
 */
 body {
-  background-color: #25252d;
-  color: white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-main {
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 .book-zone {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+/*
+    Homepage styling
+*/
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-zone {
+  background-color: #f4fce3;
+  color: #212529;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.hero-text {
+  margin-right: 5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+.hero-text h1 {
+  font-size: 3rem;
+  line-height: 1;
+}
+.hero-text p {
+  font-size: 1.25rem;
+}
+
+.info-zone {
+  text-align: center;
+  padding: 80px 0;
+}
+.info-zone h2 {
+  font-size: 2rem;
+}
+.info-zone .info-zone-blurb {
+  font-size: 1.3rem;
+  margin-bottom: 80px;
+}
+
+.info-card {
+  text-align: left;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.info-card img {
+  max-width: 50%;
 }/*# sourceMappingURL=app.css.map */
