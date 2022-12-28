@@ -10,6 +10,7 @@ export default function Navbar() {
                 </Link>
                 <nav>
                     <NavLink to="/about">About</NavLink>
+                    <NavLink to="/help">Help</NavLink>
                     <NavLink to="/login">Login</NavLink>
                     <NavLink to="/signup" className="signup-button">
                         Signup

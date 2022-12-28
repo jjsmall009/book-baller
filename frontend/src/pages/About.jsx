@@ -1,4 +1,4 @@
-// Login page
+// About page
 
 const About = () => {
     return (

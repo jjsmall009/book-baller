@@ -52,6 +52,7 @@ h6 {
 */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #212529;
 }
 
 .book-zone {
@@ -64,13 +65,12 @@ body {
     Homepage styling
 */
 .container {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .hero-zone {
   background-color: #f4fce3;
-  color: #212529;
 }
 
 .hero {
@@ -110,7 +110,7 @@ body {
   display: flex;
   gap: 3rem;
   align-items: center;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
 }
 .info-card img {
@@ -120,4 +120,42 @@ body {
 .step-title {
   font-size: 1.5rem;
   margin-bottom: 10px;
+}
+
+.cta {
+  background: #f1f3f5;
+  border-radius: 10px;
+  margin-bottom: 4rem;
+  padding: 3rem;
+  text-align: center;
+}
+.cta h2 {
+  font-size: 2rem;
+}
+.cta p {
+  font-size: 1.2rem;
+}
+
+.cta-button {
+  border: none;
+  border-radius: 1rem;
+  margin-top: 35px;
+  padding: 1rem 3rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background: #c8ff52;
+  cursor: pointer;
+}
+.cta-button:hover {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+footer {
+  padding-bottom: 1rem;
+  font-size: 0.825rem;
+}
+footer a {
+  color: rgb(52, 52, 255);
+  text-decoration: none;
+  margin-right: 16px;
 }/*# sourceMappingURL=app.css.map */

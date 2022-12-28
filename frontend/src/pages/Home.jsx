@@ -1,5 +1,7 @@
 // Landing page entry point for the site
 
+import { Link } from "react-router-dom";
+
 import bookImage from "../assets/6920932.png";
 import info1 from "../assets/info1.svg";
 import info2 from "../assets/info2.svg";
@@ -23,7 +25,9 @@ const Home = () => {
 
             <section className="info-zone container">
                 <h2>How it works</h2>
-                <p className="info-zone-blurb">Getting started takes no time at all</p>
+                <p className="info-zone-blurb">
+                    Getting started takes no time at all
+                </p>
 
                 <div className="info-card">
                     <div className="card-text">
@@ -68,6 +72,25 @@ const Home = () => {
                     />
                 </div>
             </section>
+
+            <section className="cta container">
+                <h2>Ready to get started?</h2>
+                <p>
+                    Use the button below to sign up and start tracking your
+                    reading today.
+                </p>
+                <Link to="/signup">
+                    <button className="cta-button">Get Started</button>
+                </Link>
+            </section>
+
+            <footer className="container">
+                <p>© 2022 Book Baller Inc.</p>
+                <div className="footer-links">
+                    <Link to="">Terms of Services</Link>
+                    <Link to="">Privacy Policy</Link>
+                </div>
+            </footer>
         </main>
     );
 };
