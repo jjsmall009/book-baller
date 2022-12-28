@@ -2,7 +2,7 @@
 
 const UserHomepage = () => {
     return (
-        <main className="user-page">
+        <main className="container page user-page">
             <h1>My Books</h1>
             <p>This is where a users books will show up</p>
         </main>

@@ -83,14 +83,6 @@ const Home = () => {
                     <button className="cta-button">Get Started</button>
                 </Link>
             </section>
-
-            <footer className="container">
-                <p>© 2022 Book Baller Inc.</p>
-                <div className="footer-links">
-                    <Link to="">Terms of Services</Link>
-                    <Link to="">Privacy Policy</Link>
-                </div>
-            </footer>
         </main>
     );
 };

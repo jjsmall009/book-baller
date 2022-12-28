@@ -2,7 +2,7 @@
 
 const Help = () => {
     return (
-        <main className="help-page">
+        <main className="container page help-page">
             <h1>Help Page</h1>
             <p>Get help here...</p>
         </main>

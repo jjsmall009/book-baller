@@ -11,9 +11,10 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import About from "./pages/About";
 import Help from "./pages/Help";
+import NotFound from "./pages/NotFound";
 
 // layouts
-import RootLayout from './layouts/RootLayout'
+import RootLayout from "./layouts/RootLayout";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -23,6 +24,8 @@ const router = createBrowserRouter(
             <Route path="signup" element={<Signup />} />
             <Route path="about" element={<About />} />
             <Route path="help" element={<Help />} />
+
+            <Route path="*" element={<NotFound />} />
         </Route>
     )
 );
