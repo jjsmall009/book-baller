@@ -24,4 +24,7 @@ header .signup-button {
   border: 1px solid black;
   border-radius: 3px;
   padding: 0.25rem 1rem;
+}
+header .active {
+  text-decoration: underline;
 }/*# sourceMappingURL=navbar.css.map */

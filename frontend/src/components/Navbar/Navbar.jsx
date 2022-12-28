@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./navbar.css";
 
 export default function Navbar() {
@@ -9,11 +9,11 @@ export default function Navbar() {
                     <p className="logo">Book Baller</p>
                 </Link>
                 <nav>
-                    <Link to="/about">About</Link>
-                    <Link to="/login">Login</Link>
-                    <Link to="/signup" className="signup-button">
+                    <NavLink to="/about">About</NavLink>
+                    <NavLink to="/login">Login</NavLink>
+                    <NavLink to="/signup" className="signup-button">
                         Signup
-                    </Link>
+                    </NavLink>
                 </nav>
             </div>
         </header>

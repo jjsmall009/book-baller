@@ -16,10 +16,6 @@ header {
     a {
         color: black;
         text-decoration: none;
-
-        &:hover {
-
-        }
     }
 
     nav {
@@ -32,5 +28,9 @@ header {
         border: 1px solid black;
         border-radius: 3px;
         padding: .25rem 1rem;
+    }
+
+    .active {
+        text-decoration: underline;
     }
 }
