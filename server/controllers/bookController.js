@@ -2,7 +2,7 @@
 const Book = require("../models/bookModel");
 const mongoose = require("mongoose");
 
-// get all books
+// get all books for a user
 const getBooks = async (req, res) => {
     const user_id = req.user._id
 
@@ -22,7 +22,7 @@ const getBook = async (req, res) => {
     }
 };
 
-// add a new book
+// add a new book and associate it to the user adding it
 const addBook = async (req, res) => {
     const { title, author, year, genre } = req.body;
 

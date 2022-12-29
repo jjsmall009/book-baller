@@ -1,12 +1,42 @@
 // Login page
+import React from "react";
+import { useLogin } from "../hooks/useLogin";
 
-const Login = () => {
+function Login() {
+    const [username, setUsername] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const { login, loading, error } = useLogin();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        await login(username, password);
+    };
+
     return (
-        <main className="container page login-page">
-            <h1>Login Page</h1>
-            <p>This is where you login...</p>
+        <main className="container page">
+            <form className="login" onSubmit={handleSubmit}>
+                <h3>Login</h3>
+
+                <label>Username:</label>
+                <input
+                    type="username"
+                    onChange={(e) => setUsername(e.target.value)}
+                    value={username}
+                />
+
+                <label>Password:</label>
+                <input
+                    type="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                />
+
+                <button disabled={loading}>Login</button>
+                {error && <div className="error">{error}</div>}
+            </form>
         </main>
     );
-};
+}
 
 export default Login;

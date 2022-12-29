@@ -15,7 +15,7 @@ const router = express.Router();
 // require auth for all book routes
 router.use(requireAuth);
 
-// GET all books
+// GET all books for a user
 router.get("/", getBooks);
 
 // GET a single book

@@ -152,4 +152,20 @@ body {
 }
 .cta-button:hover {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+/* 
+    Error handling
+*/
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid red;
+  color: red;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+input.error {
+  border: 1px solid red;
 }/*# sourceMappingURL=app.css.map */
