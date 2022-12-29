@@ -4,8 +4,10 @@ const mongoose = require("mongoose");
 
 // get all books
 const getBooks = async (req, res) => {
-    const books = await Book.find().sort({ createdAt: -1 });
-    res.status(200).json(books);
+    const user_id = req.user._id
+
+    const books = await Book.find({user_id}).sort({createdAt: -1})
+    res.status(200).json(books)
 };
 
 // get a single book
