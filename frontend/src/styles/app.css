@@ -53,6 +53,12 @@ h6 {
 /* =========================
     General Styling
    ========================= */
+#root {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #212529;
@@ -65,6 +71,41 @@ body {
 
 .page {
   padding: 3rem 1rem;
+}
+
+/* =========================
+    Navbar Styling
+   ========================= */
+header {
+  background-color: #f4fce3;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+header .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+}
+header .logo {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+header a {
+  color: black;
+  text-decoration: none;
+}
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+header .signup-button {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 0.25rem 1rem;
+}
+header .active {
+  text-decoration: underline;
 }
 
 /* =========================
@@ -152,57 +193,6 @@ body {
 }
 
 /* =========================
-    Error Handling
-   ========================= */
-div.error {
-  padding: 10px;
-  background: #ffefef;
-  border: 1px solid red;
-  color: red;
-  border-radius: 4px;
-  margin: 20px 0;
-}
-
-input.error {
-  border: 1px solid red;
-}
-
-/* =========================
-    Navbar Styling
-   ========================= */
-header {
-  background-color: #f4fce3;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-header .nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 3rem;
-}
-header .logo {
-  font-size: 1.75rem;
-  font-weight: bold;
-}
-header a {
-  color: black;
-  text-decoration: none;
-}
-header nav {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-header .signup-button {
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 0.25rem 1rem;
-}
-header .active {
-  text-decoration: underline;
-}
-
-/* =========================
     About Styling
    ========================= */
 .about-page {
@@ -217,14 +207,76 @@ header .active {
   color: coral;
 }
 /* =========================
+    Signup Styling
+   ========================= */
+/* =========================
     Footer Styling
    ========================= */
-footer {
-  padding-bottom: 1rem;
-  font-size: 0.825rem;
+.footer {
+  background: #292828;
+  padding: 60px 0px;
+  text-align: center;
 }
-footer a {
-  color: rgb(52, 52, 255);
+.footer p {
+  font-size: 2rem;
+  color: #f4fce3;
+}
+
+.footer .row {
+  color: gray;
+  margin: 1rem;
+}
+
+.footer .row a {
   text-decoration: none;
-  margin-right: 16px;
+  color: gray;
+  transition: 0.5s;
+}
+
+.footer .row a:hover {
+  color: #fff;
+}
+
+.footer .row ul {
+  width: 100%;
+}
+
+.footer .row ul li {
+  display: inline-block;
+  margin: 0px 30px;
+}
+
+.footer .row a i {
+  font-size: 2em;
+  margin: 0% 1%;
+}
+
+@media (max-width: 720px) {
+  .footer {
+    text-align: left;
+    padding: 5%;
+  }
+  .footer .row ul li {
+    display: block;
+    margin: 10px 0px;
+    text-align: left;
+  }
+  .footer .row a i {
+    margin: 0% 3%;
+  }
+}
+/* =========================
+    Error Handling
+   ========================= */
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid red;
+  color: red;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+input.error {
+  border: 1px solid red;
 }/*# sourceMappingURL=app.css.map */

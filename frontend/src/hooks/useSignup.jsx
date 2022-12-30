@@ -13,7 +13,7 @@ export const useSignup = () => {
         console.log("userSignup - about to fetch to backend api...");
 
         try {
-            const response = await fetch("http://localhost:4001/api/user/signup", {
+            const response = await fetch("/api/user/signup", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username, password }),

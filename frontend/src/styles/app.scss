@@ -60,6 +60,12 @@ h6 {
 /* =========================
     General Styling
    ========================= */
+#root {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: $font-dark;
@@ -72,6 +78,47 @@ body {
 
 .page {
     padding: 3rem 1rem;
+}
+
+/* =========================
+    Navbar Styling
+   ========================= */
+header {
+    background-color: $primary-color;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 3rem;
+    }
+
+    .logo {
+        font-size: 1.75rem;
+        font-weight: bold;
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .signup-button {
+        border: 1px solid black;
+        border-radius: 3px;
+        padding: 0.25rem 1rem;
+    }
+
+    .active {
+        text-decoration: underline;
+    }
 }
 
 /* =========================
@@ -167,62 +214,6 @@ body {
 }
 
 /* =========================
-    Error Handling
-   ========================= */
-div.error {
-    padding: 10px;
-    background: #ffefef;
-    border: 1px solid $error-color;
-    color: $error-color;
-    border-radius: 4px;
-    margin: 20px 0;
-}
-input.error {
-    border: 1px solid $error-color;
-}
-
-/* =========================
-    Navbar Styling
-   ========================= */
-header {
-    background-color: $primary-color;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-    .nav-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 3rem;
-    }
-
-    .logo {
-        font-size: 1.75rem;
-        font-weight: bold;
-    }
-
-    a {
-        color: black;
-        text-decoration: none;
-    }
-
-    nav {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-    }
-
-    .signup-button {
-        border: 1px solid black;
-        border-radius: 3px;
-        padding: 0.25rem 1rem;
-    }
-
-    .active {
-        text-decoration: underline;
-    }
-}
-
-/* =========================
     About Styling
    ========================= */
 .about-page {
@@ -235,24 +226,99 @@ header {
     }
 
     h3 {
-        color:coral;
+        color: coral;
     }
 
     .about-img {
-        
     }
 }
+
+/* =========================
+    Signup Styling
+   ========================= */
+
    
+
 /* =========================
     Footer Styling
    ========================= */
-footer {
-    padding-bottom: 1rem;
-    font-size: 0.825rem;
+// footer {
+//     padding-bottom: 1rem;
+//     font-size: 0.825rem;
+//     width: 100%;
 
-    a {
-        color: rgb(52, 52, 255);
-        text-decoration: none;
-        margin-right: 16px;
+//     a {
+//         color: rgb(52, 52, 255);
+//         text-decoration: none;
+//         margin-right: 16px;
+//     }
+// }
+.footer {
+    background: #292828;
+    padding: 60px 0px;
+    text-align: center;
+
+    p {
+        font-size: 2rem;
+        color: $primary-color;
     }
+}
+
+.footer .row {
+    color: gray;
+    margin: 1rem;
+}
+
+.footer .row a {
+    text-decoration: none;
+    color: gray;
+    transition: 0.5s;
+}
+
+.footer .row a:hover {
+    color: #fff;
+}
+
+.footer .row ul {
+    width: 100%;
+}
+
+.footer .row ul li {
+    display: inline-block;
+    margin: 0px 30px;
+}
+
+.footer .row a i {
+    font-size: 2em;
+    margin: 0% 1%;
+}
+
+@media (max-width: 720px) {
+    .footer {
+        text-align: left;
+        padding: 5%;
+    }
+    .footer .row ul li {
+        display: block;
+        margin: 10px 0px;
+        text-align: left;
+    }
+    .footer .row a i {
+        margin: 0% 3%;
+    }
+}
+
+/* =========================
+    Error Handling
+   ========================= */
+div.error {
+    padding: 10px;
+    background: #ffefef;
+    border: 1px solid $error-color;
+    color: $error-color;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+input.error {
+    border: 1px solid $error-color;
 }
