@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import "./bookCardStyle.css";
 
 const BookCard = () => {
     return (

@@ -1,6 +1,9 @@
-/* 
+/* =========================
+    Variables
+   ========================= */
+/* =========================
     CSS Reset
-*/
+   ========================= */
 *,
 *::before,
 *::after {
@@ -47,18 +50,12 @@ h6 {
   overflow-wrap: break-word;
 }
 
-/*
+/* =========================
     General Styling
-*/
+   ========================= */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #212529;
-}
-
-.book-zone {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
 }
 
 .container {
@@ -67,12 +64,12 @@ body {
 }
 
 .page {
-  padding: 1rem;
+  padding: 3rem 1rem;
 }
 
-/*
-    Homepage styling
-*/
+/* =========================
+    Homepage Styling
+   ========================= */
 .hero-zone {
   background-color: #f4fce3;
 }
@@ -154,9 +151,9 @@ body {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-/* 
-    Error handling
-*/
+/* =========================
+    Error Handling
+   ========================= */
 div.error {
   padding: 10px;
   background: #ffefef;
@@ -168,4 +165,66 @@ div.error {
 
 input.error {
   border: 1px solid red;
+}
+
+/* =========================
+    Navbar Styling
+   ========================= */
+header {
+  background-color: #f4fce3;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+header .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+}
+header .logo {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+header a {
+  color: black;
+  text-decoration: none;
+}
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+header .signup-button {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 0.25rem 1rem;
+}
+header .active {
+  text-decoration: underline;
+}
+
+/* =========================
+    About Styling
+   ========================= */
+.about-page {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 2rem;
+}
+.about-page p {
+  margin: 1rem 0;
+}
+.about-page h3 {
+  color: coral;
+}
+/* =========================
+    Footer Styling
+   ========================= */
+footer {
+  padding-bottom: 1rem;
+  font-size: 0.825rem;
+}
+footer a {
+  color: rgb(52, 52, 255);
+  text-decoration: none;
+  margin-right: 16px;
 }/*# sourceMappingURL=app.css.map */

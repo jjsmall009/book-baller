@@ -1,8 +1,0 @@
-.book-card {
-    display: flex;
-    gap: 1rem;
-    width: 400px;
-    padding: 1rem;
-    border: 1px solid gray;
-    border-radius: 10px;
-}
