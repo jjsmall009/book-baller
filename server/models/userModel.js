@@ -29,7 +29,7 @@ userSchema.statics.signup = async function (username, password) {
         throw Error("All fields must be filled");
     }
 
-    const exists = await this.findOne({ email });
+    const exists = await this.findOne({ username });
 
     if (exists) {
         throw Error("Username already in use");
