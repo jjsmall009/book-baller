@@ -27,7 +27,7 @@ function App() {
         createRoutesFromElements(
             <Route path="/" element={<RootLayout />}>
                 <Route index element={<Home />} />
-                <Route path="login" element={<Login />} />
+                <Route path="login" element={user ? <Navigate to="/my_books" /> : <Login />} />
                 <Route path="signup" element={<Signup />} />
                 <Route path="about" element={<About />} />
                 <Route path="help" element={<Help />} />

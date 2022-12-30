@@ -1,38 +1,54 @@
 // Login page
 import React from "react";
+import { Link } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 
 function Login() {
-    const [username, setUsername] = React.useState("");
-    const [password, setPassword] = React.useState("");
     const { login, loading, error } = useLogin();
+    const [formData, setFormData] = React.useState({
+        username: "",
+        password: "",
+    });
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    function handleChange(event) {
+        const { name, value } = event.target;
+        setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: value,
+        }));
+    }
 
-        await login(username, password);
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        await login(formData.username, formData.password);
     };
 
     return (
-        <main className="container page">
-            <form className="login" onSubmit={handleSubmit}>
-                <h3>Login</h3>
-
-                <label>Username:</label>
+        <main className="container page login-page">
+            <h2>Log in</h2>
+            <form className="form" onSubmit={handleSubmit}>
                 <input
                     type="username"
-                    onChange={(e) => setUsername(e.target.value)}
-                    value={username}
+                    placeholder="Username"
+                    name="username"
+                    onChange={handleChange}
+                    value={formData.username}
                 />
-
-                <label>Password:</label>
                 <input
                     type="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
+                    placeholder="Password"
+                    name="password"
+                    onChange={handleChange}
+                    value={formData.password}
                 />
 
-                <button disabled={loading}>Login</button>
+                <p>
+                    Need to register? <Link to="/signup">Sign up</Link>
+                </p>
+
+                <button disabled={loading} className="form--submit">
+                    Log in
+                </button>
                 {error && <div className="error">{error}</div>}
             </form>
         </main>

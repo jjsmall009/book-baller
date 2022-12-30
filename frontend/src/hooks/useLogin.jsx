@@ -10,11 +10,18 @@ export const useLogin = () => {
         setLoading(true);
         setError(null);
 
-        const response = await fetch("api/user/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, password }),
-        });
+        console.log("userSignup - about to fetch to backend api...");
+        let response = null;
+
+        try {
+            response = await fetch("api/user/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password }),
+            });
+        } catch (e) {
+            console.log(e);
+        }
 
         const json = await response.json();
 
@@ -28,6 +35,7 @@ export const useLogin = () => {
 
             dispatch({ type: "LOGIN", payload: json });
             setLoading(false);
+            console.log("login done");
         }
     };
 

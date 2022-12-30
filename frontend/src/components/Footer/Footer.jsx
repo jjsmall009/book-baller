@@ -11,9 +11,9 @@ export default function Footer() {
         //     </div>
         // </footer>
         <footer>
-            <div class="footer">
+            <div className="footer">
                 <p>BookBaller.com</p>
-                <div class="row">
+                <div className="row">
                     <ul>
                         <li>
                             <a href="#">Contact us</a>
@@ -33,9 +33,9 @@ export default function Footer() {
                     </ul>
                 </div>
 
-                <div class="row">
-                    INFERNO Copyright © 2021 Inferno - All rights reserved ||
-                    Designed By: Mahesh
+                <div className="row">
+                    Book Baller © 2022 JJ Small - All rights reserved ||
+                    Designed By: Me
                 </div>
             </div>
         </footer>

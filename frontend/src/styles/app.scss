@@ -234,25 +234,64 @@ header {
 }
 
 /* =========================
-    Signup Styling
+    Login / Signup Styling
    ========================= */
+.login-page, .signup-page {
+    h2 {
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+}
 
-   
+.form {
+    padding: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.4);
+
+    p {
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        font-weight: bold;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    input {
+        width: 100%;
+        margin-bottom: 20px;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        padding: 5px;
+    }
+
+    button {
+        width: 50%;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: $secondary-color;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: 3px 3px 10px -1px rgba(0, 0, 0, 0.4);
+        }
+    }
+}
 
 /* =========================
     Footer Styling
    ========================= */
-// footer {
-//     padding-bottom: 1rem;
-//     font-size: 0.825rem;
-//     width: 100%;
-
-//     a {
-//         color: rgb(52, 52, 255);
-//         text-decoration: none;
-//         margin-right: 16px;
-//     }
-// }
 .footer {
     background: #292828;
     padding: 60px 0px;

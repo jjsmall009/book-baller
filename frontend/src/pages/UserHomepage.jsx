@@ -18,9 +18,9 @@ const UserHomepage = () => {
         };
 
         if (user) {
-            fetchUsersBooks();
+            //fetchUsersBooks();
         }
-    }, [dispatch, user]);
+    }, [user]);
 
     return (
         <main className="container page">

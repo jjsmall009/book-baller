@@ -44,6 +44,11 @@ const Home = () => {
                     />
                 </div>
                 <div className="info-card">
+                    <img
+                        src={info2}
+                        alt="search for books image"
+                        className="info-img"
+                    />
                     <div className="card-text">
                         <h3 className="step-title">Search for Books</h3>
                         <p className="step-blurb">
@@ -51,11 +56,6 @@ const Home = () => {
                             search tool that pulls data from Google Books.
                         </p>
                     </div>
-                    <img
-                        src={info2}
-                        alt="search for books image"
-                        className="info-img"
-                    />
                 </div>
                 <div className="info-card">
                     <div className="card-text">
