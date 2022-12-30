@@ -6,9 +6,15 @@ export const useSignup = () => {
     const [loading, setLoading] = React.useState(null);
     const { dispatch } = useAuthContext();
 
-    const signup = async (username, password) => {
-        setLoading(true);
-        setError(null);
+    const signup = async (username, password, passwordConfirm) => {
+        if (password !== passwordConfirm) {
+            setLoading(false);
+            setError("passwords must match");
+            return;
+        } else {
+            setLoading(true);
+            setError(null);
+        }
 
         console.log("userSignup - about to fetch to backend api...");
         let response = null;

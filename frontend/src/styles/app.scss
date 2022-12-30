@@ -87,6 +87,10 @@ header {
     background-color: $primary-color;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
+    span {
+        font-weight: bold;
+    }
+
     .nav-container {
         display: flex;
         justify-content: space-between;

@@ -24,7 +24,7 @@ const UserHomepage = () => {
 
     return (
         <main className="container page">
-            <p>Hello {user && user.username}</p>
+            <h1>{user.username}'s Books</h1>
         </main>
     );
 };
