@@ -3,19 +3,21 @@
 import { useState } from "react";
 
 const SearchBar = () => {
-    const [searchInput, setSearchInput] = useState("");
+    const [formData, setFormData] = useState({
+        search: "",
+    });
 
     function handleChange(event) {
-        const value = event.target;
-        setSearchInput((prevSearchInput) => ({
-            ...prevSearchInput,
-            value,
+        const { name, value } = event.target;
+        setFormData((prevSearch) => ({
+            ...prevSearch,
+            [name]: value,
         }));
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        alert("You clicked me!");
+        alert(`${formData.search}`);
     };
 
     return (
@@ -26,7 +28,7 @@ const SearchBar = () => {
                     placeholder="Search for..."
                     name="search"
                     onChange={handleChange}
-                    value={searchInput}
+                    value={formData.search}
                 />
 
                 <button className="search-button">Search</button>
