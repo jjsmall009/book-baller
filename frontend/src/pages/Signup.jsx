@@ -29,7 +29,7 @@ function Signup() {
             <h2>Sign Up</h2>
             <form className="form" onSubmit={handleSubmit}>
                 <input
-                    type="username"
+                    type="text"
                     placeholder="Username"
                     name="username"
                     onChange={handleChange}

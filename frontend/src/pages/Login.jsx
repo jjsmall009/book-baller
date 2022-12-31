@@ -28,7 +28,7 @@ function Login() {
             <h2>Log in</h2>
             <form className="form" onSubmit={handleSubmit}>
                 <input
-                    type="username"
+                    type="text"
                     placeholder="Username"
                     name="username"
                     onChange={handleChange}

@@ -73,6 +73,7 @@ body {
 
 .container {
     max-width: 1100px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -248,6 +249,8 @@ header {
 }
 
 .form {
+    width: 400px;
+    margin: 0 auto;
     padding: 50px;
     border-radius: 10px;
     display: flex;
@@ -290,6 +293,22 @@ header {
         &:hover {
             box-shadow: 3px 3px 10px -1px rgba(0, 0, 0, 0.4);
         }
+    }
+}
+
+/* =========================
+    My Books Styling
+   ========================= */
+.search-zone {
+    padding: 1rem;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+
+    input {
+        width: 400px;
     }
 }
 
