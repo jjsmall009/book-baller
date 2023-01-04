@@ -34,7 +34,9 @@ const UserHomepage = () => {
 
             <SearchBar />
 
-            {books.map(book => <div>{book.title}</div>)}
+            {books.map((book) => (
+                <div>{book.title}</div>
+            ))}
         </main>
     );
 };
