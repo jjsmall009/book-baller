@@ -233,15 +233,13 @@ header {
     h3 {
         color: coral;
     }
-
-    .about-img {
-    }
 }
 
 /* =========================
     Login / Signup Styling
    ========================= */
-.login-page, .signup-page {
+.login-page,
+.signup-page {
     h2 {
         margin-bottom: 1rem;
         text-align: center;
@@ -301,14 +299,63 @@ header {
    ========================= */
 .search-zone {
     padding: 1rem;
+    width: 500px;
+    margin: 0 auto;
 }
 
 .search-form {
     display: flex;
     justify-content: center;
+    border: 1px solid black;
+    border-radius: 3px;
+    overflow: hidden;
 
     input {
-        width: 400px;
+        width: 100%;
+        padding: 5px 10px;
+        border: 0;
+
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    .search-button {
+        border: none;
+        padding: 0 2rem;
+        border-left: 1px solid black;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+.search-results {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.search-result-item {
+    border-bottom: 1px solid #d8d8d8;
+    padding: 5px;
+    display: flex;
+    gap: 1rem;
+
+    img {
+        width: 50px;
+    }
+
+    &:hover {
+        background: $primary-color;
+        cursor: pointer;
+    }
+
+    .item-title {
+        font-weight: bold;
+    }
+
+    .item-author {
+        font-style: italic;
     }
 }
 

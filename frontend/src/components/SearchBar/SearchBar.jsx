@@ -1,6 +1,7 @@
 // SearchBar - uses the book api to query for the most likely search result.
 
 import { useState, useEffect } from "react";
+import SearchResult from "./SearchResult";
 
 const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -14,10 +15,10 @@ const SearchBar = () => {
         event.preventDefault();
 
         async function getSearchBooks() {
-            const res = await fetch(
-                "https://openlibrary.org/search.json?q=the+lord+of+the+rings&limit=5"
-            );
+            const query = `https://openlibrary.org/search.json?q=${searchTerm}&limit=5`;
+            const res = await fetch(query);
             const data = await res.json();
+
             setSearchResults(data.docs);
             console.log("search results found and added to state");
         }
@@ -37,10 +38,10 @@ const SearchBar = () => {
 
                 <button className="search-button">Search</button>
             </form>
-            <div className="search-">
-                <p>Search results go below...</p>
+
+            <div className="search-results">
                 {searchResults.map((book) => (
-                    <p>{book.title}</p>
+                    <SearchResult {...book} key={book.key} />
                 ))}
             </div>
         </div>

@@ -210,10 +210,12 @@ header .active {
 .about-page h3 {
   color: coral;
 }
+
 /* =========================
     Login / Signup Styling
    ========================= */
-.login-page h2, .signup-page h2 {
+.login-page h2,
+.signup-page h2 {
   margin-bottom: 1rem;
   text-align: center;
 }
@@ -265,14 +267,56 @@ header .active {
    ========================= */
 .search-zone {
   padding: 1rem;
+  width: 500px;
+  margin: 0 auto;
 }
 
 .search-form {
   display: flex;
   justify-content: center;
+  border: 1px solid black;
+  border-radius: 3px;
+  overflow: hidden;
 }
 .search-form input {
-  width: 400px;
+  width: 100%;
+  padding: 5px 10px;
+  border: 0;
+}
+.search-form input:focus {
+  outline: 0;
+}
+.search-form .search-button {
+  border: none;
+  padding: 0 2rem;
+  border-left: 1px solid black;
+}
+.search-form .search-button:hover {
+  cursor: pointer;
+}
+
+.search-results {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.search-result-item {
+  border-bottom: 1px solid #d8d8d8;
+  padding: 5px;
+  display: flex;
+  gap: 1rem;
+}
+.search-result-item img {
+  width: 50px;
+}
+.search-result-item:hover {
+  background: #f4fce3;
+  cursor: pointer;
+}
+.search-result-item .item-title {
+  font-weight: bold;
+}
+.search-result-item .item-author {
+  font-style: italic;
 }
 
 /* =========================
