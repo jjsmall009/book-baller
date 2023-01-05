@@ -28,7 +28,7 @@ function App() {
             <Route path="/" element={<RootLayout />}>
                 <Route index element={<Home />} />
                 <Route path="login" element={user ? <Navigate to="/my_books" /> : <Login />} />
-                <Route path="signup" element={<Signup />} />
+                <Route path="signup" element={user ? <Navigate to="/my_books" /> : <Signup />} />
                 <Route path="about" element={<About />} />
                 <Route path="help" element={<Help />} />
                 <Route

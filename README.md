@@ -30,5 +30,5 @@ The app will use an API to search for book data. Either the Google Books API or 
 - [x] Backend: Create routes
 - [ ] Backend: Start hashing out the backend api endpoints
 - [ ] Database: Figure out how to run MondoDB locally so I won't have to use Atlas
-- [ ] Database: Design the schemas for the various collections
+- [x] Database: Design the schemas for the various collections
 - [x] Frontend: Do some UI mockups and brainstorming 
