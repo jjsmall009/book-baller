@@ -6,6 +6,7 @@ import SearchResult from "./SearchResult";
 const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleChange = (event) => {
         setSearchTerm(event.target.value);
@@ -13,6 +14,7 @@ const SearchBar = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setIsLoading(true);
 
         async function getSearchBooks() {
             const query = `https://openlibrary.org/search.json?q=${searchTerm}&limit=5`;
@@ -23,6 +25,7 @@ const SearchBar = () => {
             console.log("search results found and added to state");
         }
         getSearchBooks();
+        setIsLoading(false);
     };
 
     return (
@@ -44,6 +47,8 @@ const SearchBar = () => {
                     <SearchResult {...book} key={book.key} />
                 ))}
             </div>
+
+            {isLoading && <p>Searching...</p>}
         </div>
     );
 };

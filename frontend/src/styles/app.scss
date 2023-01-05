@@ -120,7 +120,7 @@ header {
         justify-content: space-between;
         align-items: center;
         margin: 0 auto;
-        font-size: 1.125rem;
+        font-size: 1.0625rem;
     }
 
     a {
@@ -163,12 +163,10 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    // padding: 2rem 0 4rem;
 }
 
 .hero-text {
     width: 70%;
-    // margin-right: 5rem;
     display: grid;
     gap: 1.5rem;
 
@@ -187,11 +185,11 @@ header {
     padding: 80px 0;
 
     h2 {
-        font-size: 2rem;
+        font-size: 3rem;
     }
 
     .info-zone-blurb {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         margin-bottom: 30px;
     }
 }
@@ -199,9 +197,9 @@ header {
 .info-card {
     text-align: left;
     display: flex;
-    gap: 3rem;
+    gap: 5rem;
     align-items: center;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
 
     img {
@@ -210,8 +208,12 @@ header {
 }
 
 .step-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 10px;
+}
+
+.step-blurb {
+    font-size: 1.25rem;
 }
 
 .cta {
@@ -461,4 +463,11 @@ div.error {
 }
 input.error {
     border: 1px solid $error-color;
+}
+
+@media (max-width: 1600px) {
+    .container, .nav-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 }
