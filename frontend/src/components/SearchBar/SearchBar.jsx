@@ -8,7 +8,7 @@ const SearchBar = ({ user }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const { addBook } = useAddBook();
+    const { addBook, error, loading } = useAddBook();
 
     // Function to add a book and do the stuff
     const addBookToLibrary = async (book) => {
@@ -59,6 +59,7 @@ const SearchBar = ({ user }) => {
                 ))}
             </div>
             {isLoading && <p>Searching...</p>}
+            {error && <div className="error">{error}</div>}
         </div>
     );
 };

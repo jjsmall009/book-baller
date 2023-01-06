@@ -320,6 +320,9 @@ header .active {
 .search-form .search-button:hover {
   cursor: pointer;
 }
+.search-form .search-button:focus, .search-form .search-button:active {
+  outline: 0;
+}
 
 .search-results {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);

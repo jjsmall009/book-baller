@@ -14,10 +14,14 @@ const bookSchema = new Schema(
             required: true,
         },
         year: {
-            type: Number,
+            type: String,
             required: false,
         },
-        genre: {
+        description: {
+            type: String,
+            required: false,
+        },
+        cover_url: {
             type: String,
             required: false,
         },
