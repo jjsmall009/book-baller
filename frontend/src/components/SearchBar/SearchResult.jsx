@@ -1,9 +1,8 @@
 // Component for a search result
 
-const SearchResult = (props) => {
-    console.log(typeof props.cover_i);
+const SearchResult = ({ props, onPress }) => {
     return (
-        <div className="search-result-item">
+        <div className="search-result-item" onClick={() => onPress(props)}>
             <img
                 src={`https://covers.openlibrary.org/b/id/${props.cover_i}-M.jpg`}
                 alt="cover image"
@@ -14,7 +13,7 @@ const SearchResult = (props) => {
                     {props.title ? props.title : "Title n/a"}
                 </p>
                 <p className="item-author">
-                    by {props.author_name ? props.author_name[0] : "Author n/a"}{" "}
+                    by {props.author_name ? props.author_name[0] : "Author n/a"}
                     (
                     {props.first_publish_year
                         ? props.first_publish_year

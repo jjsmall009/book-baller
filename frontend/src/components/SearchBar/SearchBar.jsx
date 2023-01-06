@@ -1,12 +1,19 @@
 // SearchBar - uses the book api to query for the most likely search result.
 
 import { useState, useEffect } from "react";
+import { useAddBook } from "../../hooks/useAddBook";
 import SearchResult from "./SearchResult";
 
-const SearchBar = () => {
+const SearchBar = ({ user }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const { addBook } = useAddBook();
+
+    // Function to add a book and do the stuff
+    const addBookToLibrary = async (book) => {
+        await addBook(user, book);
+    };
 
     const handleChange = (event) => {
         setSearchTerm(event.target.value);
@@ -44,10 +51,13 @@ const SearchBar = () => {
 
             <div className="search-results">
                 {searchResults.map((book) => (
-                    <SearchResult {...book} key={book.key} />
+                    <SearchResult
+                        props={book}
+                        key={book.key}
+                        onPress={addBookToLibrary}
+                    />
                 ))}
             </div>
-
             {isLoading && <p>Searching...</p>}
         </div>
     );

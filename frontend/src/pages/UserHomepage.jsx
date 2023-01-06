@@ -32,7 +32,7 @@ const UserHomepage = () => {
             <h1>{user.username}'s Books</h1>
             <h3>{books.length} books in collection</h3>
 
-            <SearchBar />
+            <SearchBar user={user}/>
 
             {books.map((book) => (
                 <div>{book.title}</div>
