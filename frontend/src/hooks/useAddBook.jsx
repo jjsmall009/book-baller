@@ -5,24 +5,17 @@ export const useAddBook = () => {
     const [error, setError] = React.useState(null);
     const [loading, setLoading] = React.useState(null);
 
-    const addBook = async (user, bookData) => {
+    // Helper function to add a Book to the db if not already there
+    const addBookToDB = async (user, bookData) => {
         const title = bookData.title;
-        const author = bookData.author_name
-            ? bookData.author_name[0]
-            : "no author";
-        const year = bookData.first_publish_name
-            ? bookData.first_publish_name
-            : "n/a";
+        const author = bookData.author_name ? bookData.author_name[0] : "no author";
+        const year = bookData.first_publish_name ? bookData.first_publish_name : "n/a";
         const description = "add description later...";
         const cover_i = bookData.cover_i ? bookData.cover_i : "n/a";
 
-        setLoading(true);
-        setError(null);
         let response = null;
 
-        console.log(
-            `about to add book to db and do stuff for ${user.username}`
-        );
+        console.log(`about to add book to db and do stuff for ${user.username}`);
 
         // Create a Book and add to the db
         try {
@@ -52,34 +45,49 @@ export const useAddBook = () => {
             setError(json.error);
         }
 
-        if (response.ok) {
-            const username = user.username;
-            const book_id = json._id;
-            try {
-                response = await fetch("api/user/update", {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ username, book_id }),
-                });
-            } catch (e) {
-                console.log("error in adding book to users book list");
-                console.log(e);
-            }
+        return json._id;
+    };
 
-            json = await response.json();
+    // Helper function to update the users book list with the new book
+    const updateUserBookList = async (user, book_id) => {
+        const username = user.username;
+        let response = null;
 
-            if (!response.ok) {
-                setLoading(false);
-                setError(json.error);
-            }
-
-            setLoading(false);
-            console.log("book added to users books list");
+        try {
+            response = await fetch("api/user/update", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, book_id }),
+            });
+        } catch (e) {
+            console.log(e);
         }
 
-        // Update current User with the new book
+        let json = await response.json();
+
+        if (!response.ok) {
+            setLoading(false);
+            setError(json.error);
+        }
+
+        setLoading(false);
+        console.log("book added to users books list");
+    };
+
+    // Hook used to add the selected book (from the search results) to
+    // the database and all that jazz
+    const addBook = async (user, bookData) => {
+        setLoading(true);
+        setError(null);
+
+        const id = await addBookToDB(user, bookData);
+
+        if (id) {
+            console.log(id)
+            updateUserBookList(user, id);
+        }
     };
 
     return { addBook, error, loading };

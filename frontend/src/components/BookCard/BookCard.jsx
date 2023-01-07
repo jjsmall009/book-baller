@@ -1,12 +1,12 @@
-import { useEffect } from "react";
-
-const BookCard = () => {
+// Book card
+const BookCard = ({ props }) => {
     return (
         <div className="book-card">
-            <img src="" alt="cover image" />
+            <img src={`https://covers.openlibrary.org/b/id/${props.cover_i}-M.jpg`} alt="cover image" />
             <div className="book-info">
-                <p className="title">The Eye of the World</p>
-                <p className="author">Robert Jordan</p>
+                <p className="title">{props.title}</p>
+                <p className="author">{props.author}</p>
+                <p className="year">{props.year}</p>
                 <p className="description">This is a good book. Read it.</p>
             </div>
         </div>

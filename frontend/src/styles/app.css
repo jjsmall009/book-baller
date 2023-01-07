@@ -349,6 +349,37 @@ header .active {
 }
 
 /* =========================
+    BookCard Styling
+   ========================= */
+.card-zone {
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.book-card {
+  background: white;
+  display: flex;
+  gap: 1rem;
+  width: 400px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+}
+.book-card .title {
+  font-weight: bold;
+}
+.book-card img {
+  padding: 10px;
+  max-width: 100px;
+}
+
+/* =========================
     Footer Styling
    ========================= */
 .footer {
