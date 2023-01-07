@@ -65,10 +65,14 @@ const updateUserBooks = async (req, res) => {
     try {
         const added = await User.findOneAndUpdate(
             { username: username },
-            { $addToSet: { books: book_id } }
+            { $addToSet: { books: book_id } },
+            { new: true }
         );
 
-        if (added.books[added.books.length - 1] === book_id) {
+        let x = JSON.stringify(added.books[added.books.length - 1])
+        let y = x.substring(1, x.length-1);
+
+        if (y === book_id) {
             console.log("book added to user list in db = good");
             res.status(200).json({ mssg: "yo yo ma" });
         } else {

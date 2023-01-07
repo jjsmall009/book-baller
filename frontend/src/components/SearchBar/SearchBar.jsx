@@ -7,12 +7,16 @@ import SearchResult from "./SearchResult";
 const SearchBar = ({ user }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
+    const [searchDone, setSearchDone] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const { addBook, error, loading } = useAddBook();
 
     // Function to add a book and do the stuff
     const addBookToLibrary = async (book) => {
         await addBook(user, book);
+
+        // Remove the search results once a book is added
+        setSearchDone(!searchDone);
     };
 
     const handleChange = (event) => {
@@ -21,6 +25,7 @@ const SearchBar = ({ user }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setSearchDone(false);
         setIsLoading(true);
 
         async function getSearchBooks() {
@@ -50,7 +55,7 @@ const SearchBar = ({ user }) => {
             </form>
 
             <div className="search-results">
-                {searchResults.map((book) => (
+                {!searchDone && searchResults.map((book) => (
                     <SearchResult
                         props={book}
                         key={book.key}
