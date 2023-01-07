@@ -14,7 +14,7 @@ export const useAddBook = () => {
             ? bookData.first_publish_name
             : "n/a";
         const description = "add description later...";
-        const cover = "cover_i";
+        const cover_i = bookData.cover_i ? bookData.cover_i : "n/a";
 
         setLoading(true);
         setError(null);
@@ -37,15 +37,15 @@ export const useAddBook = () => {
                     author,
                     year,
                     description,
-                    cover,
+                    cover_i,
                 }),
             });
         } catch (e) {
-            console.log("error in useAddbook");
+            console.log("error in useAddBook");
             console.log(e);
         }
 
-        const json = await response.json();
+        let json = await response.json();
 
         if (!response.ok) {
             setLoading(false);
@@ -53,8 +53,30 @@ export const useAddBook = () => {
         }
 
         if (response.ok) {
+            const username = user.username;
+            const book_id = json._id;
+            try {
+                response = await fetch("api/user/update", {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ username, book_id }),
+                });
+            } catch (e) {
+                console.log("error in adding book to users book list");
+                console.log(e);
+            }
+
+            json = await response.json();
+
+            if (!response.ok) {
+                setLoading(false);
+                setError(json.error);
+            }
+
             setLoading(false);
-            console.log("book added. yay!");
+            console.log("book added to users books list");
         }
 
         // Update current User with the new book

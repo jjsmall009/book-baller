@@ -24,7 +24,7 @@ const getBook = async (req, res) => {
 
 // add a new book
 const addBook = async (req, res) => {
-    const { title, author, year, description, cover_url } = req.body;
+    const { title, author, year, description, cover_i } = req.body;
     console.log("adding book???")
 
     try {
@@ -33,7 +33,7 @@ const addBook = async (req, res) => {
             author,
             year,
             description,
-            cover_url,
+            cover_i,
         });
         res.status(200).json(book);
         console.log("book added to db = great success");

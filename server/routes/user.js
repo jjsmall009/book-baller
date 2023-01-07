@@ -1,15 +1,26 @@
 // Routes for dealing with user accounts
-const express = require('express')
+const express = require("express");
 
 // controller functions
-const { loginUser, signupUser } = require('../controllers/userController')
+const {
+    loginUser,
+    signupUser,
+    getUserBooks,
+    updateUserBooks,
+} = require("../controllers/userController");
 
-const router = express.Router()
+const router = express.Router();
 
 // login route
-router.post('/login', loginUser)
+router.post("/login", loginUser);
 
 // signup route
-router.post('/signup', signupUser)
+router.post("/signup", signupUser);
 
-module.exports = router
+// get users books list
+router.get("/get_books", getUserBooks);
+
+// update user book list
+router.put("/update", updateUserBooks);
+
+module.exports = router;
