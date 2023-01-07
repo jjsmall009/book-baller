@@ -5,6 +5,11 @@ const Schema = mongoose.Schema;
 
 const bookSchema = new Schema(
     {
+        openlibrary_id: {
+            type: String,
+            required: true,
+            unique: true,
+        },
         title: {
             type: String,
             required: true,

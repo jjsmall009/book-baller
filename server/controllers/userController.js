@@ -46,8 +46,10 @@ const getUserBooks = async (req, res) => {
     const user_id = req.user._id;
 
     try {
-        const data = await User.findOne(user_id).populate("books");
-        res.status(200).json(data.books);
+        const data = await User.findOne(user_id)
+            .populate("books")
+            .sort({ createdAt: -1 });
+        res.status(200).json(data.books.reverse());
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
@@ -63,10 +65,16 @@ const updateUserBooks = async (req, res) => {
     try {
         const added = await User.findOneAndUpdate(
             { username: username },
-            { $push: { books: book_id } }
+            { $addToSet: { books: book_id } }
         );
-        console.log("book added to user list in db = good");
-        res.status(200).json({ mssg: "yo yo ma" });
+
+        if (added.books[added.books.length - 1] === book_id) {
+            console.log("book added to user list in db = good");
+            res.status(200).json({ mssg: "yo yo ma" });
+        } else {
+            console.log("book already in your list");
+            res.status(200).json({ error: "Book already in your list" });
+        }
     } catch (error) {
         res.status(400).json({ error: error.message });
     }

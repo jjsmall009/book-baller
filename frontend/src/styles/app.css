@@ -367,6 +367,7 @@ header .active {
   display: flex;
   gap: 1rem;
   width: 400px;
+  height: 150px;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
@@ -377,6 +378,10 @@ header .active {
 .book-card img {
   padding: 10px;
   max-width: 100px;
+}
+
+.book-info {
+  overflow-y: auto;
 }
 
 /* =========================

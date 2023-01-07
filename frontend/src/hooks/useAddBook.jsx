@@ -10,17 +10,28 @@ export const useAddBook = () => {
         const res = await fetch(query);
         let json = await res.json();
 
-        return json.description != undefined ? json.description.value : "No description";
+        let description = "No description";
+
+        if (json.description != undefined) {
+            if (json.description.value != undefined) {
+                description = json.description.value;
+            } else {
+                description = json.description;
+            }
+        }
+
+        return description;
     }
 
     // Helper function to add a Book to the db if not already there
     const addBookToDB = async (user, bookData) => {
+        const openlibrary_id = bookData.key;
         const title = bookData.title;
         const author = bookData.author_name
             ? bookData.author_name[0]
             : "no author";
-        const year = bookData.first_publish_name
-            ? bookData.first_publish_name
+        const year = bookData.first_publish_year
+            ? bookData.first_publish_year
             : "n/a";
         const description = await getDescription(bookData.key);
         const cover_i = bookData.cover_i ? bookData.cover_i : "n/a";
@@ -40,6 +51,7 @@ export const useAddBook = () => {
                     Authorization: `Bearer ${user.token}`,
                 },
                 body: JSON.stringify({
+                    openlibrary_id,
                     title,
                     author,
                     year,
@@ -80,8 +92,14 @@ export const useAddBook = () => {
         }
 
         let json = await response.json();
+        console.log(json)
 
         if (!response.ok) {
+            setLoading(false);
+            setError(json.error);
+        }
+
+        if (json.error) {
             setLoading(false);
             setError(json.error);
         }
@@ -99,7 +117,6 @@ export const useAddBook = () => {
         const id = await addBookToDB(user, bookData);
 
         if (id) {
-            console.log(id);
             updateUserBookList(user, id);
         }
     };

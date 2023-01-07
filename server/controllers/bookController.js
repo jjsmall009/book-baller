@@ -24,11 +24,19 @@ const getBook = async (req, res) => {
 
 // add a new book
 const addBook = async (req, res) => {
-    const { title, author, year, description, cover_i } = req.body;
-    console.log("adding book???")
+    const { openlibrary_id, title, author, year, description, cover_i } =
+        req.body;
+
+    let exists = await Book.findOne({ openlibrary_id: openlibrary_id });
+    if (exists) {
+        console.log("exists")
+        res.status(200).json({ _id: exists._id });
+        return;
+    }
 
     try {
         const book = await Book.create({
+            openlibrary_id,
             title,
             author,
             year,
