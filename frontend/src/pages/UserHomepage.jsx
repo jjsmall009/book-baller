@@ -5,40 +5,41 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 const UserHomepage = () => {
-    const { user } = useAuthContext();
-    const [books, setBooks] = useState([]);
+  const { user } = useAuthContext();
+  const [books, setBooks] = useState([]);
 
-    useEffect(() => {
-        const fetchUsersBooks = async () => {
-            const response = await fetch("/api/books", {
-                headers: { Authorization: `Bearer ${user.token}` },
-            });
+  useEffect(() => {
+    const fetchUsersBooks = async () => {
+      const response = await fetch("/api/user/get_books", {
+        headers: { Authorization: `Bearer ${user.token}` },
+      });
 
-            if (response.ok) {
-                console.log("User successfully found - adding books to page");
-            }
+      if (response.ok) {
+        console.log("User successfully found - adding books to page");
+      }
 
-            const json = await response.json();
-            setBooks(json);
-        };
+      const json = await response.json();
+      console.log(json);
+      setBooks(json);
+    };
 
-        if (user) {
-            fetchUsersBooks();
-        }
-    }, [user]);
+    if (user) {
+      fetchUsersBooks();
+    }
+  }, [user]);
 
-    return (
-        <main className="container page">
-            <h1>{user.username}'s Books</h1>
-            <h3>{books.length} books in collection</h3>
+  return (
+    <main className="container page">
+      <h1>{user.username}'s Books</h1>
+      <h3>{books.length} books in collection</h3>
 
-            <SearchBar user={user}/>
+      <SearchBar user={user} />
 
-            {books.map((book) => (
-                <div>{book.title}</div>
-            ))}
-        </main>
-    );
+      {/* {books.map((book) => (
+        <div>{book}</div>
+      ))} */}
+    </main>
+  );
 };
 
 export default UserHomepage;

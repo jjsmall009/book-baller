@@ -9,6 +9,8 @@ const {
     updateUserBooks,
 } = require("../controllers/userController");
 
+const requireAuth = require("../middleware/requireAuth");
+
 const router = express.Router();
 
 // login route
@@ -18,6 +20,8 @@ router.post("/login", loginUser);
 router.post("/signup", signupUser);
 
 // get users books list
+
+router.use("/get_books", requireAuth);
 router.get("/get_books", getUserBooks);
 
 // update user book list
