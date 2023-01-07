@@ -7,7 +7,7 @@ const BookCard = ({ props }) => {
                 <p className="title">{props.title}</p>
                 <p className="author">{props.author}</p>
                 <p className="year">{props.year}</p>
-                <p className="description">This is a good book. Read it.</p>
+                <p className="description">{props.description}</p>
             </div>
         </div>
     );
