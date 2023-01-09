@@ -30,6 +30,18 @@ const UserHomepage = () => {
         }
     }, [user]);
 
+    const callback = (newBook) => {
+        setBooks([newBook, ...books]);
+        console.log("Homepage updated with new book");
+    };
+
+    const beenDeleted = (id) => {
+        setBooks((prevData) => {
+            return prevData.filter((b) => b._id !== id);
+        });
+        console.log("Book has been deleted. Homepage updated.");
+    };
+
     return (
         <main className="container page">
             <h1>{user.username}'s Books</h1>
@@ -39,7 +51,7 @@ const UserHomepage = () => {
 
             <div className="card-zone">
                 {books.map((book) => (
-                    <BookCard key={book._id} props={book} />
+                    <BookCard key={book._id} props={book} callback={beenDeleted} />
                 ))}
             </div>
         </main>

@@ -379,6 +379,10 @@ header .active {
   padding: 10px;
   max-width: 100px;
 }
+.book-card span {
+  font-weight: bold;
+  cursor: pointer;
+}
 
 .book-info {
   overflow-y: auto;

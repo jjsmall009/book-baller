@@ -46,9 +46,7 @@ const getUserBooks = async (req, res) => {
     const user_id = req.user._id;
 
     try {
-        const data = await User.findOne(user_id)
-            .populate("books")
-            .sort({ createdAt: -1 });
+        const data = await User.findOne(user_id).populate("books").sort({ createdAt: -1 });
         res.status(200).json(data.books.reverse());
     } catch (error) {
         res.status(400).json({ error: error.message });
@@ -69,8 +67,8 @@ const updateUserBooks = async (req, res) => {
             { new: true }
         );
 
-        let x = JSON.stringify(added.books[added.books.length - 1])
-        let y = x.substring(1, x.length-1);
+        let x = JSON.stringify(added.books[added.books.length - 1]);
+        let y = x.substring(1, x.length - 1);
 
         if (y === book_id) {
             console.log("book added to user list in db = good");
@@ -84,4 +82,25 @@ const updateUserBooks = async (req, res) => {
     }
 };
 
-module.exports = { signupUser, loginUser, getUserBooks, updateUserBooks };
+// deletes the given book from the users list
+const deleteBook = async (req, res) => {
+    console.log("in user controller", req.params);
+    console.log(req.body.user.username);
+
+    const { id } = req.params;
+    const { user } = req.body;
+
+    try {
+        const added = await User.findOneAndUpdate(
+            { username: user.username },
+            { $pull: { books: id } }
+        );
+
+        console.log(added.books);
+        res.status(200).json({ _id: id });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
+
+module.exports = { signupUser, loginUser, getUserBooks, updateUserBooks, deleteBook };

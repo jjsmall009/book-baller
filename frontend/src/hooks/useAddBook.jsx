@@ -27,20 +27,14 @@ export const useAddBook = () => {
     const addBookToDB = async (user, bookData) => {
         const openlibrary_id = bookData.key;
         const title = bookData.title;
-        const author = bookData.author_name
-            ? bookData.author_name[0]
-            : "no author";
-        const year = bookData.first_publish_year
-            ? bookData.first_publish_year
-            : "n/a";
+        const author = bookData.author_name ? bookData.author_name[0] : "no author";
+        const year = bookData.first_publish_year ? bookData.first_publish_year : "n/a";
         const description = await getDescription(bookData.key);
         const cover_i = bookData.cover_i ? bookData.cover_i : "n/a";
 
         let response = null;
 
-        console.log(
-            `about to add book to db and do stuff for ${user.username}`
-        );
+        console.log(`about to add book to db and do stuff for ${user.username}`);
 
         // Create a Book and add to the db
         try {
@@ -71,6 +65,9 @@ export const useAddBook = () => {
             setError(json.error);
         }
 
+        // Dispatch the new book to the my-books page
+        
+
         return json._id;
     };
 
@@ -92,7 +89,6 @@ export const useAddBook = () => {
         }
 
         let json = await response.json();
-        console.log(json)
 
         if (!response.ok) {
             setLoading(false);
@@ -105,7 +101,6 @@ export const useAddBook = () => {
         }
 
         setLoading(false);
-        console.log("book added to users books list");
     };
 
     // Hook used to add the selected book (from the search results) to

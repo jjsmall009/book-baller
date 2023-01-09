@@ -7,6 +7,7 @@ const {
     signupUser,
     getUserBooks,
     updateUserBooks,
+    deleteBook,
 } = require("../controllers/userController");
 
 const requireAuth = require("../middleware/requireAuth");
@@ -19,12 +20,14 @@ router.post("/login", loginUser);
 // signup route
 router.post("/signup", signupUser);
 
-// get users books list
-
+// get users books lists
 router.use("/get_books", requireAuth);
 router.get("/get_books", getUserBooks);
 
 // update user book list
 router.put("/update", updateUserBooks);
+
+// delete a book from the users lists
+router.delete("/:id", deleteBook);
 
 module.exports = router;

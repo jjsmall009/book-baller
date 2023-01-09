@@ -30,7 +30,7 @@ const addBook = async (req, res) => {
     let exists = await Book.findOne({ openlibrary_id: openlibrary_id });
     if (exists) {
         console.log("exists")
-        res.status(200).json({ _id: exists._id });
+        res.status(200).json(exists);
         return;
     }
 
