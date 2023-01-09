@@ -47,7 +47,7 @@ const UserHomepage = () => {
             <h1>{user.username}'s Books</h1>
             <h3>{books.length} books in collection</h3>
 
-            <SearchBar user={user} />
+            <SearchBar user={user} callback={callback}/>
 
             <div className="card-zone">
                 {books.map((book) => (

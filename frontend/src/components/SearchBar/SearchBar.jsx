@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useAddBook } from "../../hooks/useAddBook";
 import SearchResult from "./SearchResult";
 
-const SearchBar = ({ user }) => {
+const SearchBar = ({ user, callback }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
     const [searchDone, setSearchDone] = useState(false);
@@ -13,7 +13,12 @@ const SearchBar = ({ user }) => {
 
     // Function to add a book and do the stuff
     const addBookToLibrary = async (book) => {
-        await addBook(user, book);
+        const newBook = await addBook(user, book);
+
+        if(newBook) {
+            console.log("passing book back to homepage")
+            callback(newBook);
+        }
 
         // Remove the search results once a book is added
         setSearchDone(!searchDone);

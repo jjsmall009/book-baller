@@ -4,6 +4,7 @@ import React from "react";
 export const useAddBook = () => {
     const [error, setError] = React.useState(null);
     const [loading, setLoading] = React.useState(null);
+    let newBook = null;
 
     async function getDescription(work_id) {
         const query = `https://openlibrary.org${work_id}.json`;
@@ -66,7 +67,7 @@ export const useAddBook = () => {
         }
 
         // Dispatch the new book to the my-books page
-        
+        newBook = json;
 
         return json._id;
     };
@@ -113,6 +114,11 @@ export const useAddBook = () => {
 
         if (id) {
             updateUserBookList(user, id);
+        }
+
+        if(newBook) {
+            console.log("new book");
+            return newBook;
         }
     };
 
