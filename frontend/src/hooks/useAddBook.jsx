@@ -3,7 +3,7 @@ import React from "react";
 
 export const useAddBook = () => {
     const [error, setError] = React.useState(null);
-    const [loading, setLoading] = React.useState(null);
+    const [loading, setLoading] = React.useState(false);
     let newBook = null;
 
     async function getDescription(work_id) {
@@ -56,7 +56,7 @@ export const useAddBook = () => {
             });
         } catch (e) {
             console.log("error in useAddBook");
-            console.log(e);
+            setError(e);
         }
 
         let json = await response.json();
@@ -86,7 +86,7 @@ export const useAddBook = () => {
                 body: JSON.stringify({ username, book_id }),
             });
         } catch (e) {
-            console.log(e);
+            setError(e);
         }
 
         let json = await response.json();
@@ -94,11 +94,7 @@ export const useAddBook = () => {
         if (!response.ok) {
             setLoading(false);
             setError(json.error);
-        }
-
-        if (json.error) {
-            setLoading(false);
-            setError(json.error);
+            newBook = null;
         }
 
         setLoading(false);
@@ -113,7 +109,7 @@ export const useAddBook = () => {
         const id = await addBookToDB(user, bookData);
 
         if (id) {
-            updateUserBookList(user, id);
+            await updateUserBookList(user, id);
         }
 
         if(newBook) {

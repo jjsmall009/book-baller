@@ -8,11 +8,12 @@ const SearchBar = ({ user, callback }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
     const [searchDone, setSearchDone] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const wrapperRef = useRef(null);
     const { addBook, error, loading } = useAddBook();
 
+    // These next two functions will remove the search results from view when the user
+    // clicks outside of the search results zone
     useEffect(() => {
         document.addEventListener("click", handleClickOutside, false);
         return () => {
@@ -23,6 +24,7 @@ const SearchBar = ({ user, callback }) => {
     const handleClickOutside = (event) => {
         if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
             setIsVisible(false);
+            setSearchResults([]);
         }
     };
 
@@ -49,7 +51,6 @@ const SearchBar = ({ user, callback }) => {
         event.preventDefault();
         setIsVisible(true);
         setSearchDone(false);
-        setIsLoading(true);
 
         async function getSearchBooks() {
             const query = `https://openlibrary.org/search.json?q=${searchTerm}&limit=5`;
@@ -60,7 +61,6 @@ const SearchBar = ({ user, callback }) => {
             console.log("search results found and added to state");
         }
         getSearchBooks();
-        setIsLoading(false);
     };
 
     return (
@@ -74,7 +74,7 @@ const SearchBar = ({ user, callback }) => {
                     value={searchTerm}
                 />
 
-                <button className="search-button">Search</button>
+                <button className="search-button" disabled={loading}>Search</button>
             </form>
 
             {isVisible && (
@@ -86,7 +86,6 @@ const SearchBar = ({ user, callback }) => {
                 </div>
             )}
 
-            {isLoading && <p>Searching...</p>}
             {error && <div className="error">{error}</div>}
         </div>
     );

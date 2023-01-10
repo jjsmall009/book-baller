@@ -17,10 +17,6 @@ const UserHomepage = () => {
                 headers: { Authorization: `Bearer ${user.token}` },
             });
 
-            if (response.ok) {
-                console.log("User successfully found - adding books to page");
-            }
-
             const json = await response.json();
             setBooks(json);
         };
@@ -32,7 +28,6 @@ const UserHomepage = () => {
 
     const callback = (newBook) => {
         setBooks([newBook, ...books]);
-        console.log("Homepage updated with new book");
     };
 
     const beenDeleted = (id) => {

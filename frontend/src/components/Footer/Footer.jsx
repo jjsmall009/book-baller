@@ -3,39 +3,29 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
-        // <footer className="container">
-        //     <p>© 2022 Book Baller Inc.</p>
-        //     <div className="footer-links">
-        //         <Link to="">Terms of Services</Link>
-        //         <Link to="">Privacy Policy</Link>
-        //     </div>
-        // </footer>
         <footer>
-            <div className="footer">
-                <p>BookBaller.com</p>
-                <div className="row">
-                    <ul>
-                        <li>
-                            <a href="#">Contact us</a>
-                        </li>
-                        <li>
-                            <a href="#">Our Services</a>
-                        </li>
-                        <li>
-                            <a href="#">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="#">Terms & Conditions</a>
-                        </li>
-                        <li>
-                            <a href="#">Career</a>
-                        </li>
+            <div className="footer-main">
+                <div className="foot-cont">
+                    <p className="footer-title">Book Baller</p>
+                    <p className="footer-blurb">
+                        Book Baller is a simple yet powerful reading tracker web
+                        app that allows users to keep track of what they are
+                        reading.
+                    </p>
+
+                    <ul className="footer-list">
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">About Us</a></li>
                     </ul>
                 </div>
-
-                <div className="row">
-                    Book Baller © 2022 JJ Small - All rights reserved ||
-                    Designed By: Me
+            </div>
+            <div className="footer-end">
+                <div className="foot-cont">
+                    <p>
+                        Copyright 2023 by JJ Small - A Cool Guy Making Cool
+                        Things
+                    </p>
                 </div>
             </div>
         </footer>

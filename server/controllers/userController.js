@@ -75,7 +75,7 @@ const updateUserBooks = async (req, res) => {
             res.status(200).json({ mssg: "yo yo ma" });
         } else {
             console.log("book already in your list");
-            res.status(200).json({ error: "Book already in your list" });
+            res.status(400).json({ error: "Book already in your list" });
         }
     } catch (error) {
         res.status(400).json({ error: error.message });
