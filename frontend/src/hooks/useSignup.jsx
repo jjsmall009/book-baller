@@ -16,7 +16,6 @@ export const useSignup = () => {
             setError(null);
         }
 
-        console.log("userSignup - about to fetch to backend api...");
         let response = null;
 
         try {
@@ -26,7 +25,7 @@ export const useSignup = () => {
                 body: JSON.stringify({ username, password }),
             });
         } catch (e) {
-            console.log(e);
+            setError(e);
         }
 
         const json = await response.json();
@@ -40,6 +39,7 @@ export const useSignup = () => {
             localStorage.setItem("user", JSON.stringify(json));
 
             dispatch({ type: "LOGIN", payload: json });
+
             setLoading(false);
         }
     };

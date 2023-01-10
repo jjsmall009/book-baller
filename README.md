@@ -2,6 +2,8 @@
 
 Book Baller is a simple yet powerful reading tracker web app that allows users to keep track of what they are reading.
 
+![My Books Page](data/book-page.png)
+
 ## Project Goals
 
 My goal with this project is to not only create a full-fledged app using the MERN stack but to also learn:

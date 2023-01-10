@@ -44,6 +44,7 @@ const SearchBar = ({ user, callback }) => {
         setSearchTerm(event.target.value);
     };
 
+    // When clicked, query based on the search parameter and get the top 5 results
     const handleSubmit = async (event) => {
         event.preventDefault();
         setIsVisible(true);

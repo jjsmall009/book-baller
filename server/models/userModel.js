@@ -49,7 +49,7 @@ userSchema.statics.signup = async function (username, password) {
 // static login method
 userSchema.statics.login = async function (username, password) {
     if (!username || !password) {
-        throw Error("All fields must be filled");
+        throw Error("Username and password must not be empty");
     }
 
     const user = await this.findOne({ username });
