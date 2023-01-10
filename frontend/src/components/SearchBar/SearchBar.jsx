@@ -1,6 +1,6 @@
 // SearchBar - uses the book api to query for the most likely search result.
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAddBook } from "../../hooks/useAddBook";
 import SearchResult from "./SearchResult";
 
@@ -9,19 +9,35 @@ const SearchBar = ({ user, callback }) => {
     const [searchResults, setSearchResults] = useState([]);
     const [searchDone, setSearchDone] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
+    const wrapperRef = useRef(null);
     const { addBook, error, loading } = useAddBook();
+
+    useEffect(() => {
+        document.addEventListener("click", handleClickOutside, false);
+        return () => {
+            document.removeEventListener("click", handleClickOutside, false);
+        };
+    }, []);
+
+    const handleClickOutside = (event) => {
+        if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+            setIsVisible(false);
+        }
+    };
 
     // Function to add a book and do the stuff
     const addBookToLibrary = async (book) => {
         const newBook = await addBook(user, book);
 
-        if(newBook) {
-            console.log("passing book back to homepage")
+        if (newBook) {
+            console.log("passing book back to homepage");
             callback(newBook);
         }
 
         // Remove the search results once a book is added
         setSearchDone(!searchDone);
+        setSearchTerm("");
     };
 
     const handleChange = (event) => {
@@ -30,6 +46,7 @@ const SearchBar = ({ user, callback }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setIsVisible(true);
         setSearchDone(false);
         setIsLoading(true);
 
@@ -46,7 +63,7 @@ const SearchBar = ({ user, callback }) => {
     };
 
     return (
-        <div className="search-zone">
+        <div className="search-zone" ref={wrapperRef}>
             <form className="search-form" onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -59,15 +76,15 @@ const SearchBar = ({ user, callback }) => {
                 <button className="search-button">Search</button>
             </form>
 
-            <div className="search-results">
-                {!searchDone && searchResults.map((book) => (
-                    <SearchResult
-                        props={book}
-                        key={book.key}
-                        onPress={addBookToLibrary}
-                    />
-                ))}
-            </div>
+            {isVisible && (
+                <div className="search-results">
+                    {!searchDone &&
+                        searchResults.map((book) => (
+                            <SearchResult props={book} key={book.key} onPress={addBookToLibrary} />
+                        ))}
+                </div>
+            )}
+
             {isLoading && <p>Searching...</p>}
             {error && <div className="error">{error}</div>}
         </div>

@@ -330,8 +330,13 @@ header {
    ========================= */
 .search-zone {
     padding: 1rem;
-    width: 500px;
-    margin: 0 auto;
+    width: 700px;
+    margin: 0 auto; 
+    background: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+
 }
 
 .search-form {
@@ -404,7 +409,7 @@ header {
     gap: 1rem;
     justify-content: center;
     max-width: 1300px;
-    margin: 2rem auto;
+    margin: 6rem auto;
 }
 
 .book-card {
@@ -428,6 +433,7 @@ header {
 
 .book-info {
     display: grid;
+    grid-template-rows: 1fr min-content;
     width: 100%;
     gap: 0.5rem;
 
@@ -435,17 +441,20 @@ header {
         // text-overflow: ellipsis;
         // white-space: wrap;
         // overflow: hidden;
-        overflow-y: scroll;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-
-        .description {
-            
-        }
+        // overflow-y: scroll;
+        // scrollbar-width: none; /* Firefox */
+        // -ms-overflow-style: none;  /* Internet Explorer 10+ */
 
         .title {
             font-weight: bold;
             font-size: 1.125rem;
+        }
+
+        .description {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
         }
     }
 
@@ -475,8 +484,6 @@ header {
             margin-left: auto;
         }
     }
-
-
 }
 
 /* =========================

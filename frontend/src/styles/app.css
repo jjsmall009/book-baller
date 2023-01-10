@@ -293,8 +293,12 @@ header .active {
    ========================= */
 .search-zone {
   padding: 1rem;
-  width: 500px;
+  width: 700px;
   margin: 0 auto;
+  background: white;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 .search-form {
@@ -357,7 +361,7 @@ header .active {
   gap: 1rem;
   justify-content: center;
   max-width: 1300px;
-  margin: 2rem auto;
+  margin: 6rem auto;
 }
 
 .book-card {
@@ -382,17 +386,20 @@ header .active {
 
 .book-info {
   display: grid;
+  grid-template-rows: 1fr -webkit-min-content;
+  grid-template-rows: 1fr min-content;
   width: 100%;
   gap: 0.5rem;
-}
-.book-info .top {
-  overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 .book-info .top .title {
   font-weight: bold;
   font-size: 1.125rem;
+}
+.book-info .top .description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
 }
 .book-info .bottom {
   background-color: #f7fafc;
