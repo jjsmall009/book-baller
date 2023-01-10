@@ -352,40 +352,70 @@ header .active {
     BookCard Styling
    ========================= */
 .card-zone {
-  border-radius: 1rem;
-  padding: 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1300px;
+  margin: 2rem auto;
 }
 
 .book-card {
-  background: white;
   display: flex;
-  gap: 1rem;
-  width: 400px;
-  height: 150px;
-  border-radius: 1rem;
+  width: 600px;
+  height: 250px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
 }
-.book-card .title {
-  font-weight: bold;
-}
 .book-card img {
-  padding: 10px;
-  max-width: 100px;
+  width: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 0 0;
+     object-position: 0 0;
 }
-.book-card span {
-  font-weight: bold;
-  cursor: pointer;
+
+.info-container {
+  padding: 1.125rem;
 }
 
 .book-info {
-  overflow-y: auto;
+  display: grid;
+  width: 100%;
+  gap: 0.5rem;
+}
+.book-info .top {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+.book-info .top .title {
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+.book-info .bottom {
+  background-color: #f7fafc;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+.book-info .bottom .author {
+  font-weight: bold;
+  grid-area: 1/1/2/2;
+}
+.book-info .bottom .year {
+  grid-area: 2/1/3/2;
+}
+.book-info .bottom span {
+  font-weight: light;
+  cursor: pointer;
+  grid-area: 2/2/3/3;
+  text-align: right;
+  color: gray;
+  margin-left: auto;
 }
 
 /* =========================
@@ -463,7 +493,8 @@ input.error {
 }
 
 @media (max-width: 1600px) {
-  .container, .nav-container {
+  .container,
+.nav-container {
     padding-left: 2rem;
     padding-right: 2rem;
   }
