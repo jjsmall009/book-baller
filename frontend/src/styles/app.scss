@@ -376,7 +376,8 @@ header {
         }
 
         &:disabled {
-            background: red;
+            background: white;
+            cursor: default;
         }
     }
 }
@@ -434,6 +435,10 @@ header {
         object-fit: cover;
         object-position: 0 0;
     }
+
+    &:hover {
+        box-shadow: rgba(99, 99, 99, 0.6) 2px 2px 8px 2px;
+    }
 }
 
 .info-container {
@@ -446,14 +451,12 @@ header {
     width: 100%;
     gap: 0.5rem;
 
-    .top {
-        // text-overflow: ellipsis;
-        // white-space: wrap;
-        // overflow: hidden;
-        // overflow-y: scroll;
-        // scrollbar-width: none; /* Firefox */
-        // -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    svg:hover {
+        outline: 2px solid rgb(171, 171, 171);
+        border-radius: 3px;
+    }
 
+    .top {
         .title {
             font-weight: bold;
             font-size: 1.125rem;

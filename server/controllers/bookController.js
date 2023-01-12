@@ -46,7 +46,6 @@ const addBook = async (req, res) => {
         res.status(200).json(book);
         console.log("book added to db = great success");
     } catch (error) {
-        console.log("error adding book in db controller");
         res.status(400).json({ error: error.message });
     }
 };

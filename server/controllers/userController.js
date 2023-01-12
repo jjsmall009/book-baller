@@ -24,11 +24,9 @@ const loginUser = async (req, res) => {
 
 // signup a user
 const signupUser = async (req, res) => {
-    console.log("user controller - sign up");
     const { username, password } = req.body;
 
     try {
-        console.log("about to add user to database");
         const user = await User.signup(username, password);
 
         // create a token
@@ -55,8 +53,6 @@ const getUserBooks = async (req, res) => {
 
 // update users book list
 const updateUserBooks = async (req, res) => {
-    console.log("updating user books list with new book");
-
     const { username, book_id } = req.body;
     console.log(req.body);
 
@@ -71,7 +67,6 @@ const updateUserBooks = async (req, res) => {
         let y = x.substring(1, x.length - 1);
 
         if (y === book_id) {
-            console.log("book added to user list in db = good");
             res.status(200).json({ mssg: "yo yo ma" });
         } else {
             console.log("book already in your list");
@@ -84,7 +79,6 @@ const updateUserBooks = async (req, res) => {
 
 // deletes the given book from the users list
 const deleteBook = async (req, res) => {
-    console.log("in user controller", req.params);
     console.log(req.body.user.username);
 
     const { id } = req.params;

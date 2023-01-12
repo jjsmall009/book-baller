@@ -332,7 +332,8 @@ header .active {
   outline: 0;
 }
 .search-form .search-button:disabled {
-  background: red;
+  background: white;
+  cursor: default;
 }
 
 .search-results {
@@ -386,6 +387,9 @@ header .active {
   -o-object-position: 0 0;
      object-position: 0 0;
 }
+.book-card:hover {
+  box-shadow: rgba(99, 99, 99, 0.6) 2px 2px 8px 2px;
+}
 
 .info-container {
   padding: 1.125rem;
@@ -397,6 +401,10 @@ header .active {
   grid-template-rows: 1fr min-content;
   width: 100%;
   gap: 0.5rem;
+}
+.book-info svg:hover {
+  outline: 2px solid rgb(171, 171, 171);
+  border-radius: 3px;
 }
 .book-info .top .title {
   font-weight: bold;

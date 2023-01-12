@@ -34,5 +34,5 @@ The app will use an API to search for book data. Either the Google Books API or 
 - [ ] Database: Figure out how to run MondoDB locally so I won't have to use Atlas
 - [x] Database: Design the schemas for the various collections
 - [x] Frontend: Do some UI mockups and brainstorming 
-- [ ] Frontend: Style the book cards better + new footer
-- [ ] Frontend: Add loading indicators to things
+- [x] Frontend: Style the book cards better + new footer
+- [x] Frontend: Add loading indicators to things
