@@ -223,6 +223,10 @@ header {
     padding: 3rem;
     text-align: center;
 
+    @media (max-width: 1599px) {
+        width: 90%;
+    }
+
     h2 {
         font-size: 2rem;
     }

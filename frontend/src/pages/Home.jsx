@@ -44,18 +44,18 @@ const Home = () => {
                     />
                 </div>
                 <div className="info-card">
+                    <div className="card-text">
+                        <h3 className="step-title">Search for Books</h3>
+                        <p className="step-blurb">
+                            Add books to your profile by using the built-in
+                            search tool that pulls data from the OpenLibrary API.
+                        </p>
+                    </div>
                     <img
                         src={info2}
                         alt="search for books image"
                         className="info-img"
                     />
-                    <div className="card-text">
-                        <h3 className="step-title">Search for Books</h3>
-                        <p className="step-blurb">
-                            Add books to your profile by using the built-in
-                            search tool that pulls data from Google Books.
-                        </p>
-                    </div>
                 </div>
                 <div className="info-card">
                     <div className="card-text">
