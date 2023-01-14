@@ -1,9 +1,41 @@
 @media (max-width: 650px) {
-  #root {
+  .container {
+    align-self: start;
+  }
+  /* =========================
+      Navbar Styling
+    ========================= */
+  .hamburger {
     display: block;
   }
-  .container {
+  header {
+    padding: 1rem 0;
+    position: relative;
+  }
+  header .nav-expanded {
+    display: none;
+  }
+  header .logo-zone .logo {
+    font-size: 1rem;
+  }
+  header .nav-container {
     margin: auto;
+  }
+  header nav {
+    display: none;
+    gap: 1rem;
+  }
+  .nav-mobile {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    background: gray;
+    width: 100%;
+  }
+  .nav-mobile a {
+    color: white;
+    text-align: center;
   }
   .hero-zone {
     padding: 3rem 0rem;
@@ -66,6 +98,21 @@
   .cta-button {
     font-size: 1rem;
     margin-top: 1rem;
+  }
+  /* =========================
+      About Styling
+     ========================= */
+  .about-page {
+    display: block;
+  }
+  .about-page img {
+    width: 80%;
+  }
+  .about-page p {
+    margin: 1rem 0;
+  }
+  .about-page h3 {
+    color: coral;
   }
   /* =========================
       Footer Styling

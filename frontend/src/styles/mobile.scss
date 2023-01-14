@@ -1,10 +1,51 @@
 @media (max-width: 650px) {
-    #root {
+    .container {
+        align-self: start;
+    }
+
+    /* =========================
+        Navbar Styling
+      ========================= */
+    .hamburger {
         display: block;
     }
 
-    .container {
-        margin: auto;
+    header {
+        padding: 1rem 0;
+        position: relative;
+
+        .nav-expanded {
+            display: none;
+        }
+
+        .logo-zone {
+            .logo {
+                font-size: 1rem;
+            }
+        }
+
+        .nav-container {
+            margin: auto;
+        }
+
+        nav {
+            display: none;
+            gap: 1rem;
+        }
+    }
+
+    .nav-mobile {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        background: gray;
+        width: 100%;
+
+        a {
+            color: white;
+            text-align: center;
+        }
     }
 
     .hero-zone {
@@ -87,10 +128,28 @@
     }
 
     /* =========================
+        About Styling
+       ========================= */
+    .about-page {
+        display: block;
+
+        img {
+            width: 80%;
+        }
+
+        p {
+            margin: 1rem 0;
+        }
+
+        h3 {
+            color: coral;
+        }
+    }
+
+    /* =========================
         Footer Styling
        ========================= */
     .foot-cont {
         width: 100%;
     }
-
 }

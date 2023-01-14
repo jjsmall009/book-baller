@@ -86,6 +86,12 @@ body {
 /* =========================
     Navbar Styling
    ========================= */
+.hamburger {
+    display: none;
+    fill: $secondary-color;
+    cursor: pointer;
+}
+
 header {
     background-color: white;
     // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -128,7 +134,7 @@ header {
         text-decoration: none;
     }
 
-    nav {
+    .nav-expanded {
         display: flex;
         align-items: center;
         gap: 2rem;
@@ -340,12 +346,11 @@ header {
 .search-zone {
     padding: 1rem;
     width: 700px;
-    margin: 0 auto; 
+    margin: 0 auto;
     background: white;
     position: absolute;
     left: 0;
     right: 0;
-
 }
 
 .search-form {
@@ -524,7 +529,7 @@ footer {
     }
 
     .footer-blurb {
-        color:#868686;
+        color: #868686;
         line-height: 1.6;
         padding: 1rem;
     }

@@ -77,6 +77,12 @@ body {
 /* =========================
     Navbar Styling
    ========================= */
+.hamburger {
+  display: none;
+  fill: #565add;
+  cursor: pointer;
+}
+
 header {
   background-color: white;
   padding: 2.25rem 0;
@@ -113,7 +119,7 @@ header a {
   color: black;
   text-decoration: none;
 }
-header nav {
+header .nav-expanded {
   display: flex;
   align-items: center;
   gap: 2rem;
