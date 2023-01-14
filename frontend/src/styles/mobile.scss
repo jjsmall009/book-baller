@@ -1,6 +1,20 @@
+/* =========================
+    Variables
+   ========================= */
+   $primary-color: #f0dff5;
+   $secondary-color: #565add;
+   $accent-color: #f1f3f5;
+   $error-color: red;
+   
+   $font-dark: #212529;
+
 @media (max-width: 650px) {
     .container {
         align-self: start;
+    }
+
+    .page {
+        padding: 1rem;
     }
 
     /* =========================
@@ -8,6 +22,7 @@
       ========================= */
     .hamburger {
         display: block;
+        // padding-right: 1rem;
     }
 
     header {
@@ -19,6 +34,7 @@
         }
 
         .logo-zone {
+            padding-left: 1rem;
             .logo {
                 font-size: 1rem;
             }
@@ -26,6 +42,8 @@
 
         .nav-container {
             margin: auto;
+            padding: 0;
+            padding-right: 1rem;
         }
 
         nav {
@@ -38,15 +56,27 @@
         display: flex;
         flex-direction: column;
         position: absolute;
+        z-index: 100;
         top: 70px;
-        background: gray;
+        background: #fcfafd;
         width: 100%;
+        padding: 1rem 0;
+        
 
         a {
-            color: white;
+            color: $font-dark;
             text-align: center;
         }
+
+        .signup-button {
+            color: white;
+            margin-top: 3rem;
+        }
     }
+
+    /* =========================
+        Homepage Styling
+      ========================= */
 
     .hero-zone {
         padding: 3rem 0rem;
@@ -143,6 +173,72 @@
 
         h3 {
             color: coral;
+        }
+    }
+
+    /* =========================
+        Login / Signup Styling
+      ========================= */
+    .form {
+        width: auto;
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    /* =========================
+        My Books Styling
+      ========================= */
+    .search-zone {
+        width: auto;
+        position: relative;
+        
+        padding: 1rem 0;
+    }
+    
+    .search-form {
+        display: block;
+        border: none;
+
+        input {
+            border: 1px solid black;
+        }
+
+        .search-button {
+            width: 100%;
+            border: none;
+            padding: 6px;   
+        }
+    }
+
+    .search-results {
+
+    }
+
+    .search-results-item {
+
+    }
+
+    /* =========================
+        BookCard Styling
+      ========================= */
+    .card-zone {
+        margin: auto;
+    }
+
+    .book-card {
+        width: 100%;
+        height: auto;
+        display: block;
+
+        img {
+            height: 100px;
+            width: 100%;
+        }
+    }
+
+    .book-info {
+        .bottom {
+            padding: 0.5rem 1rem;
         }
     }
 

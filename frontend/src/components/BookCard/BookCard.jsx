@@ -24,7 +24,7 @@ const BookCard = ({ props, callback }) => {
         <div className="book-card">
             {props.cover_i != "n/a" ? (
                 <img
-                    src={`https://covers.openlibrary.org/b/id/${props.cover_i}-M.jpg`}
+                    src={`https://covers.openlibrary.org/b/id/${props.cover_i}-L.jpg`}
                     alt="cover image"
                 />
             ) : (

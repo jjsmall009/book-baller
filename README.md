@@ -36,3 +36,4 @@ The app will use an API to search for book data. Either the Google Books API or 
 - [x] Frontend: Do some UI mockups and brainstorming 
 - [x] Frontend: Style the book cards better + new footer
 - [x] Frontend: Add loading indicators to things
+- [x] Mobile css
