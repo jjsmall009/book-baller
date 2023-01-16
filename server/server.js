@@ -21,6 +21,7 @@ app.use("/api/books", bookRoutes);
 app.use('/api/user', userRoutes)
 
 // connect to db
+mongoose.set("strictQuery", false);
 mongoose
     .connect(process.env.MONGO_CONN)
     .then(() => {

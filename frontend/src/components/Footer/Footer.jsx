@@ -10,7 +10,7 @@ export default function Footer() {
                     <p className="footer-blurb">
                         Book Baller is a simple yet powerful reading tracker web
                         app that allows users to keep track of what they are
-                        reading.
+                        reading. Always free, always awesome.
                     </p>
 
                     <ul className="footer-list">
