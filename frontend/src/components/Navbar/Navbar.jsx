@@ -37,12 +37,38 @@ export default function Navbar() {
                 </svg>
 
                 <nav className={isNavExpanded ? "nav-mobile" : "nav-expanded"}>
-                    <NavLink to="/about">About</NavLink>
-                    <NavLink to="*">Contact</NavLink>
-                    <NavLink to="/help">Help</NavLink>
+                    <NavLink
+                        to="/about"
+                        onClick={() => {
+                            setIsNavExpanded(false);
+                        }}
+                    >
+                        About
+                    </NavLink>
+                    <NavLink
+                        to="*"
+                        onClick={() => {
+                            setIsNavExpanded(false);
+                        }}
+                    >
+                        Contact
+                    </NavLink>
+                    <NavLink
+                        to="/help"
+                        onClick={() => {
+                            setIsNavExpanded(false);
+                        }}
+                    >
+                        Help
+                    </NavLink>
                     {user && (
                         <>
-                            <NavLink to="/my_books">
+                            <NavLink
+                                to="/my_books"
+                                onClick={() => {
+                                    setIsNavExpanded(false);
+                                }}
+                            >
                                 {user.username}'s Books
                             </NavLink>
                             <NavLink
@@ -56,8 +82,21 @@ export default function Navbar() {
                     )}
                     {!user && (
                         <>
-                            <NavLink to="/login">Login</NavLink>
-                            <NavLink to="/signup" className="signup-button">
+                            <NavLink
+                                to="/login"
+                                onClick={() => {
+                                    setIsNavExpanded(false);
+                                }}
+                            >
+                                Login
+                            </NavLink>
+                            <NavLink
+                                to="/signup"
+                                className="signup-button"
+                                onClick={() => {
+                                    setIsNavExpanded(false);
+                                }}
+                            >
                                 Signup Now
                             </NavLink>
                         </>
