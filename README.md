@@ -2,6 +2,8 @@
 
 Book Baller is a simple yet powerful reading tracker web app that allows users to keep track of what they are reading.
 
+[Visit the site here](https://book-baller.onrender.com/)
+
 ![My Books Page](data/book-page.png)
 
 ## Project Goals
