@@ -9,18 +9,22 @@ Book Baller is a simple yet powerful reading tracker web app that allows users t
 ## Project Goals
 
 My goal with this project is to not only create a full-fledged app using the MERN stack but to also learn:
+
 - Deployment and hosting
 - Testing (unit testing, end-to-end testing, possibly integration testing)
 - More in depth SASS usage
 
 ## Architecture and Some Design
+
 Backend
+
 - NodeJS
 - Express
 - MongoDB, Mongoose
 - Basic auth using JWTs and bcrypt for password hashing.
 
 Frontend
+
 - Vite
 - React
 - React Router
@@ -35,7 +39,7 @@ The app will use an API to search for book data. Either the Google Books API or 
 - [x] Backend: Start hashing out the backend api endpoints
 - [ ] Database: Figure out how to run MondoDB
 - [x] Database: Design the schemas for the various collections
-- [x] Frontend: Do some UI mockups and brainstorming 
+- [x] Frontend: Do some UI mockups and brainstorming
 - [x] Frontend: Style the book cards better + new footer
 - [x] Frontend: Add loading indicators to things
 - [x] Mobile css
