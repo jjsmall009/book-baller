@@ -18,7 +18,7 @@ Backend
 - NodeJS
 - Express
 - MongoDB, Mongoose
-- Most likely Auth0 with some JWTs thrown in
+- Basic auth using JWTs and bcrypt for password hashing.
 
 Frontend
 - Vite
@@ -33,7 +33,7 @@ The app will use an API to search for book data. Either the Google Books API or 
 - [x] Backend: Initial server setup
 - [x] Backend: Create routes
 - [x] Backend: Start hashing out the backend api endpoints
-- [ ] Database: Figure out how to run MondoDB locally so I won't have to use Atlas
+- [ ] Database: Figure out how to run MondoDB
 - [x] Database: Design the schemas for the various collections
 - [x] Frontend: Do some UI mockups and brainstorming 
 - [x] Frontend: Style the book cards better + new footer

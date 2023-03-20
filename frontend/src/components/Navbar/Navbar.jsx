@@ -45,22 +45,7 @@ export default function Navbar() {
                     >
                         About
                     </NavLink>
-                    <NavLink
-                        to="*"
-                        onClick={() => {
-                            setIsNavExpanded(false);
-                        }}
-                    >
-                        Contact
-                    </NavLink>
-                    <NavLink
-                        to="/help"
-                        onClick={() => {
-                            setIsNavExpanded(false);
-                        }}
-                    >
-                        Help
-                    </NavLink>
+                    
                     {user && (
                         <>
                             <NavLink
